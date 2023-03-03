@@ -7,38 +7,47 @@ function searchByName(meal) {
             return response.json()
         })
         .then(function (data) {
+            // Console Logging all of the data
             console.log(data);
+
             var mealName = data.meals[0].strMeal;
             console.log(mealName);
 
             var areaOfOrigin = data.meals[0].strArea;
             console.log(areaOfOrigin);
 
-            var xyz = "strIngredient1";
-            console.log(data.meals[0]);
             
         })
 }
+// searchByName("Duck Confit");
 
-searchByName("Duck Confit");
 
-
-// Return a single random meal:
+// Function which will return random meal
+// This function needs to be paired with the button which will generate a random recipe
 function singleRandomMeal() {
     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
         .then(function (response) {
             return response.json()
         })
         .then(function (data) {
-            // console.log("Single Random Meal Data:");
-            var randomMealString = data.meals[0].strMeal;
-            // searchByName(randomMealString);
-            // console.log("Single random meal: " + data.meals[0].strMeal);
-        })
-}
-// This function needs to be paired with the button which will generate a random recipe
-singleRandomMeal();
+            var mealData = data.meals[0];
+            console.log(mealData);
 
+            // Loop which logs all of the ingredients which are not blank
+            // There are a max of 20 ingredients - some of which are blankk
+            // WIP
+
+            // Same thing needs to be done for the measures - and then the two of them need to be linked together
+            for (var i = 0; i < 20; i++) {
+                if (mealData[["strIngredient"+i]] !== "") {
+                    console.log(mealData["strIngredient"+i]);
+                }
+            }
+
+        })
+
+}
+singleRandomMeal();
 
 // List all ingredients
 function ingredients(){
@@ -86,5 +95,5 @@ function mealByID(id) {
             console.log(data);
         })
 }
-mealByID(52907);
+// mealByID(52907);
 
