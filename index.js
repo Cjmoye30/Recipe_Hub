@@ -1,3 +1,8 @@
+// HTML Selectors
+$("#random-button-search").click(function(){
+    console.log("Pull a random recipie on button click");
+    singleRandomMeal();
+})
 
 
 // Search meals by name:
@@ -21,6 +26,13 @@ function searchByName(meal) {
 }
 // searchByName("Duck Confit");
 
+var form = $("#recipe-search-form");
+form.on("submit", function(e){
+    e.preventDefault();
+    var userRecipe = $("#user-recipe-input").val();
+    console.log(userRecipe);
+    searchByName(userRecipe);
+})
 
 // Function which will return random meal
 // This function needs to be paired with the button which will generate a random recipe
@@ -38,15 +50,17 @@ function singleRandomMeal() {
             // WIP
 
             // Same thing needs to be done for the measures - and then the two of them need to be linked together
-            for (var i = 0; i < 20; i++) {
-                if (mealData[["strIngredient"+i]] !== "") {
-                    console.log(mealData["strIngredient"+i]);
+            for (var i = 1; i < 20; i++) {
+                if (mealData[["strIngredient"+i]] !== "" && mealData[["strMeasure"+i]] !== "") {
+                    var ingredient = mealData["strIngredient"+i];
+                    var measure = mealData["strMeasure"+i];
+                    console.log(ingredient +"\n"+measure);
                 }
             }
-
         })
-
 }
+
+// Will delete out this once it is tied to our HTML search button
 singleRandomMeal();
 
 // List all ingredients
