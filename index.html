@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  </head>
-  
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+
 <body>
     <section class="hero">
         <div class="hero-body">
             <div class="container" id="heroContainer">
                 <div class="titleHero">
                     <h1 id="Recipe Spot">Recipe Spot</h1>
-                    <img id="Recipe Spot" src="" alt=""  style="max-width: 100px; max-height: 100px;">
-                  </div>
-                  <h4 id="subHead">Find Recipes and locate grocery stores</h4>
-        </div>
+                    <img id="Recipe Spot" src="" alt="" style="max-width: 100px; max-height: 100px;">
+                </div>
+                <h4 id="subHead">Find Recipes and locate grocery stores</h4>
+            </div>
     </section>
-       <section class="section">
+    <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="column is-4">
@@ -35,28 +37,35 @@
                             </div>
                         </form>
                     </div>
-                     <div class="history" id="search-history">
+                    <div class="history" id="search-history">
                         <label class="label">Search History</label>
                         <p id='search-history-help'>Previously Searched Recipes Here.</p>
                         <ul id="search-history-list">
                         </ul>
                     </div>
                 </div>
-                 <div class="results">
+                <div class="results">
                     <div class="list-results" id="search-results-container" style="display: none;">
                         <div class="recipe-list" id="search-results"></div>
                     </div>
                     <div class="recipe-list" id="recipe" style="display: none;">
                         <div class="columns">
-                               <ul id="measurement"></ul>
-                               <ul id="ingredient"></ul>
+                            <ul id="measurement"></ul>
+                            <ul id="ingredient"></ul>
                         </div>
                         <div class="columns">
                             <p id="instructions"></p>
                         </div>
-    </section>
+                </div>
+            </section>
+            <div class="box" id="map-container">
+                test
+            </div>
     <!-- <script src="assets/js/meal.js"></script> -->
     <!-- <script src="assets/js/search_history.js"></script> -->
     <!-- <script src="assets/js/main.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@geoapify/geocoding-js-api@1.1.0/build/Geoapify.min.js"></script> -->
+    <script src="./index.js"></script>
 </body>
+
 </html>
