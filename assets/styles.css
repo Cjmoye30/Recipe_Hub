@@ -1,7 +1,5 @@
-/* #map-conatiner {
-    width: 600px; */
-    /* height: 600px; */
-    /* border: 1px;
-    border-style: solid;
-    border-color: black;
-} */
+#my-map {
+    width: 50%;
+    height: 400px;
+    margin: 0;
+  }
