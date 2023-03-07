@@ -1,0 +1,29 @@
+.hidden {
+    display: none;
+}
+
+#measurement, #ingredient{
+    list-style-type: none;
+}
+
+.titleHero{
+    display: flex;
+    justify-content: space-between;
+}
+
+#titleRecipeSpot{
+    position: relative ;
+    top: 10px;
+    color: rgb(1, 1, 1);
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+#subHead{
+    position: relative;
+    top: -45px;
+}
+.hero-body{
+    padding-bottom: 0px;
+    padding-top: 30px;
+}
