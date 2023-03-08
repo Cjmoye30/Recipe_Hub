@@ -15,9 +15,9 @@ SO THAT I can get the required ingredients for the recipe selected
 ## Acceptance Criteria
 
 ```
-GIVEN a
-WHEN I 
-THEN I 
+GIVEN a website built to show recipes
+WHEN I click on a button named random recipe
+THEN I am taken to new page which 
 
 WHEN I 
 THEN I 
