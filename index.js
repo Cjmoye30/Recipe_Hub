@@ -30,24 +30,33 @@ $(function () {
     //   .then(result => console.log(result))
     //   .catch(error => console.log('error', error));
 
+
+    // Query Selectors / Event Handlers
+
     $("#recipe-search-form").on("submit", function (e) {
         e.preventDefault();
+        $("#recipe-results").text("")
         var userRecipe = $("#user-recipe-input").val();
+
         console.log(userRecipe);
         searchByName(userRecipe);
     })
-
+    
     // Event handler tied to the newly created buttons if there is more than 1 option available for the recipe that they entered
     // Grabbing the ID from the target of the element of the button we are clicking
     // Using that ID to then pull the recipe contents from the ID function 
     $("#recipe-results").click(function (e) {
         var buttonID = e.target.id;
-        mealByID(buttonID);
-    })
 
-    // Event listeners for search and random generate button
-    $("#random-button-search").click(function () {
-        singleRandomMeal();
+        // Send the user value to local storage
+        console.log(buttonID);
+        searchHistory.push(buttonID);
+        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+
+        setTimeout(function(){
+            location.href = "landingPage.html";
+        }, 250)
+
     })
 
     // Fetch recipe by name
@@ -58,12 +67,12 @@ $(function () {
             })
             .then(function (data) {
                 // Console Logging all of the data
+
                 var recipeOptionsNum = data.meals.length;
                 console.log(recipeOptionsNum);
 
                 for (var i = 0; i < recipeOptionsNum; i++) {
                     var idMeal = data.meals[i].idMeal;
-                    console.log(idMeal);
                     var mealOptionEl = $("<button>").text(data.meals[i].strMeal).attr("id", idMeal).addClass("recipe-option");
                     $("#recipe-results").append(mealOptionEl);
                 }
@@ -72,41 +81,39 @@ $(function () {
 
     // Fetch random recipe
     function singleRandomMeal() {
+
         fetch("https://www.themealdb.com/api/json/v1/1/random.php")
             .then(function (response) {
                 return response.json()
             })
             .then(function (data) {
-                var mealData = data.meals[0];
-                for (var i = 1; i < 20; i++) {
-                    if (mealData[["strIngredient" + i]] !== "" && mealData[["strMeasure" + i]] !== "") {
-                        var ingredient = mealData["strIngredient" + i];
-                        var measure = mealData["strMeasure" + i];
-                        console.log(ingredient + "\n" + measure);
-                    }
-                }
+                console.log(data);
+
+                var mealID = data.meals[0].idMeal;
+                searchHistory.push(mealID);
+                localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
             })
     }
 
-    // Fetch recipe by ID
-    function mealByID(id) {
-        fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)
-            .then(function (response) {
-                return response.json()
-            })
-            .then(function (data) {
-                var mealData = data.meals[0];
-                for (var i = 1; i < 20; i++) {
-                    if (mealData[["strIngredient" + i]] !== "" && mealData[["strMeasure" + i]] !== "") {
-                        var ingredient = mealData["strIngredient" + i];
-                        var measure = mealData["strMeasure" + i];
-                        console.log(ingredient + "\n" + measure);
-                    }
-                }
-            })
+    var searchHistory = [];
+    function initStorage(){
+        var storedRecipes = JSON.parse(localStorage.getItem("searchHistory"));
+        if(storedRecipes !== null) {
+            searchHistory = storedRecipes;
+            console.log(searchHistory);
+        }
     }
+
+    // Event listeners for search and random generate button
+    // Adding a delay so that the function can run before transitioning to the next page
+    $("#random-button-search").click(function () {
+        singleRandomMeal();
+        setTimeout(function(){
+            location.href = "landingPage.html";
+        }, 250)
+    })
 
     // init functions
-    
+    initStorage();
     initMap();
 });
