@@ -1,5 +1,5 @@
-#my-map {
-    width: 50%;
-    height: 400px;
-    margin: 1;
-}
+.title {
+    text-align: center;
+    color: rgb(9, 0, 0);
+  }
+
