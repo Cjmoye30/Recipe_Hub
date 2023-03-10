@@ -16,18 +16,24 @@ SO THAT I can get the required ingredients for the recipe selected
 
 ```
 GIVEN a website built to show recipes
-WHEN I click on a button named random recipe
-THEN I am taken to new page which 
 
-WHEN I 
-THEN I 
 
-WHEN I 
-THEN I 
+Given I am user who wants to find recipes
+When I click a button named random recipe
+Then I am taken to a new page which displays the random recipe
 
-WHEN I 
-THEN I 
-```
+Given I am a user who views a list of recipes
+When I search the name of a dish or food item 
+Then I am presented with a list of recipe
+
+Given I am a user who wants to prepare a recipe
+When I can view recipes
+Then I also view ingredients for that recipe
+
+Given I am a user who wants to get recipe ingredients
+When I enter my location
+Then I can view a list of grocery stores
+
 
 ## Installation / Live Site
 [Github Pages Live Site]()
@@ -43,8 +49,7 @@ THEN I
 -
 
 ### [CSS Framework: Bulma](https://bulma.io/)
-
--
+- 
 -
 -
 
