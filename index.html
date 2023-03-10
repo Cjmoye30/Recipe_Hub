@@ -1,60 +1,41 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  </head>
-  
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <title>Recipe Hub</title>
+</head>
+
 <body>
-    <section class="hero">
+    <section class="hero is-success">
         <div class="hero-body">
-            <div class="container" id="heroContainer">
-                <div class="titleHero">
-                    <h1 id="Recipe Spot">Recipe Spot</h1>
-                    <img id="Recipe Spot" src="" alt=""  style="max-width: 100px; max-height: 100px;">
-                  </div>
-                  <h4 id="subHead">Find Recipes and locate grocery stores</h4>
+          <p class="title">Recipe Hub</p>
+          <p class="subtitle">Find Recipes and locate grocery stores </p>
         </div>
+     </section>
+    <section class="section is-large">      
+      <div class="container is-fluid">
+        <div class="notification is-light">Find a Recipe</strong><div class="control">
+              <div class="control">
+        <button class="button is-link">Random Recipe</button>
+       </div>
     </section>
-       <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-4">
-                    <div class="search-results-container">
-                        <form id="search-form">
-                            <label class="label">Recipe Search</label>
-                            <div class="search-box">
-                                <div class="search-field">
-                                    <input class="input" type="text" placeholder="Search for Recipe" id="search-field">
-                                </div>
-                                <div class="search-button">
-                                    <a class="button is-info" id="search-button">Search</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                     <div class="history" id="search-history">
-                        <label class="label">Search History</label>
-                        <p id='search-history-help'>Previously Searched Recipes Here.</p>
-                        <ul id="search-history-list">
-                        </ul>
-                    </div>
-                </div>
-                 <div class="results">
-                    <div class="list-results" id="search-results-container" style="display: none;">
-                        <div class="recipe-list" id="search-results"></div>
-                    </div>
-                    <div class="recipe-list" id="recipe" style="display: none;">
-                        <div class="columns">
-                               <ul id="measurement"></ul>
-                               <ul id="ingredient"></ul>
-                        </div>
-                        <div class="columns">
-                            <p id="instructions"></p>
-                        </div>
-    </section>
-   
-</body>
-</html>
+    <div class="container is-fluid">
+        <div class="notification is-primary">Find a Recipe</strong><div class="control">
+            <input class="input" type="text" placeholder="Recipe input">
+            <div class="control">
+                <button class="button is-dark">Submit</button>
+            <ul class="search-results-container"></div>
+    </div>
+    </div>
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>Recipe Hub</strong> by Calm Tornadoes!</a>
+              </p>
+            </div>
+          </footer>
+      </div>
+    </html>
