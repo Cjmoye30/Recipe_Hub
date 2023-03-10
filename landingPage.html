@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Random Recipe Page</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,12 +15,13 @@
 
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 
     <header>
-        <a href="index.html">
+        <a href="testHTML.html">
             <h1>Recipe Hub / Name</h1>
         </a>
     </header>
@@ -28,14 +29,21 @@
 
     <section id="recipeResults" class="hero">
         <div class="hero-body">
-            <p class="Recipe Title">
-                Recipe Title Placeholder
-            </p>
-            <p class="subtitle">
-                Hero subtitle
-            </p>
+
+            <div id="recipe-title">title</div>
+            <img id="recipe-img" src="" alt="">
+            <div id="recipe-ingredients-container">
+                <p>ingredients & measurements</p>
+                <ul id="recipe-ingredients"></ul>
+            </div>
+            <div id="recipe-instructions">instructions</div>
+            
         </div>
 
+    </section>
+
+    <section id="return">
+        <button id="return-to-main">Return to Main</button>
     </section>
 
 
@@ -43,7 +51,12 @@
 
     </section>
 
-    <script src="./index.js"></script>
+    <!-- JQuery Added -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script src="index.js"></script>
+    <script src="landingPage.js" async defer></script>
+
 </body>
 
 </html>

@@ -1,5 +1,10 @@
 $(function () {
 
+    // Return home
+    $("#return-to-main").click(function(){
+        location.href = "testHTML.html";
+    })
+
     var recipeLog = JSON.parse(localStorage.getItem("searchHistory"));
     var lastRecipe = recipeLog[recipeLog.length - 1];
     console.log(lastRecipe);
