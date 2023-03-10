@@ -3,7 +3,7 @@ $(function () {
     // start of maps api
     function initMap() {
 
-        var map = L.map("my-map").setView([35.2271, -80.8431], 14);
+        var map = L.map("my-map").setView([35.2271, -80.8431], 13);
 
         // Get your own API Key on https://myprojects.geoapify.com
         var myAPIKey = "fd3d5e013b4b4cea96e30a0054594a65";
@@ -21,14 +21,37 @@ $(function () {
             attribution:
                 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | © OpenStreetMap <a href="https://www.openstreetmap.org/copyright" target="_blank">contributors</a>',
             apiKey: myAPIKey,
-            maxZoom: 14,
+            maxZoom: 13,
             id: "osm-bright",
         }).addTo(map);
+        var markerIcon = L.icon({
+            iconUrl: `https://api.geoapify.com/v1/icon/?type=material&color=red&iconType=awesome&apiKey=${myAPIKey}`,
+            iconSize: [25, 40], // size of the icon
+            iconAnchor: [15.5, 42], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
+        });
+
+        fetch("https://api.geoapify.com/v2/places?categories=commercial.supermarket&filter=place:51ad15dd56663554c0591d95d55d619a4140f00101f90107b5020000000000c00206920309436861726c6f747465&lang=en&limit=20&apiKey=fd3d5e013b4b4cea96e30a0054594a65")
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+          result.features.forEach((feature) => {
+            let markerPopup = L.popup().setContent(
+              `<div>${feature.properties.address_line1}</div><div>${feature.properties.address_line2}</div>`
+            );
+            let marker = L.marker(
+              [feature.properties.lat, feature.properties.lon],
+              { icon: markerIcon }
+            )
+              .bindPopup(markerPopup).addTo(map);
+          });
+        })
+        .catch((error) => console.log("error", error));
     }
-    //   fetch("https://api.geoapify.com/v2/places?categories=commercial.supermarket&filter=place:51ad15dd56663554c0591d95d55d619a4140f00101f90107b5020000000000c00206920309436861726c6f747465&lang=en&limit=30&apiKey=fd3d5e013b4b4cea96e30a0054594a65")
-    //   .then(response => response.json())
-    //   .then(result => console.log(result))
-    //   .catch(error => console.log('error', error));
+
+    // end of map api
+
+    // start of recipe api
 
 
     // Query Selectors / Event Handlers
@@ -114,6 +137,7 @@ $(function () {
     })
 
     // init functions
+
     initStorage();
     initMap();
 });
