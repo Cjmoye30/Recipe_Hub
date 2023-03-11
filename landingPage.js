@@ -2,7 +2,7 @@ $(function () {
 
     // Return home
     $("#return-to-main").click(function(){
-        location.href = "testHTML.html";
+        location.href = "index.html";
     })
 
     var recipeLog = JSON.parse(localStorage.getItem("searchHistory"));
@@ -18,7 +18,7 @@ $(function () {
             .then(function (data) {
                 var mealData = data.meals[0];
                 for (var i = 1; i < 20; i++) {
-                    if (mealData[["strIngredient" + i]] !== "" && mealData[["strMeasure" + i]] !== "") {
+                    if (mealData[["strIngredient" + i]] !== "" && mealData[["strMeasure" + i]] !== "" && mealData[["strMeasure" + i]] !== null) {
                         var ingredient = mealData["strIngredient" + i];
                         var measure = mealData["strMeasure" + i];
                         var ingredientPlusMeasure = ingredient + "\n" + measure;
