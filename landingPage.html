@@ -18,12 +18,16 @@
 
 <body>
 
-    <header>
-        <a href="index.html">
-            <h1>Recipe Hub / Name</h1>
-        </a>
-    </header>
-
+    <!-- Header Section -->
+    <section class="hero is-success">
+        <div class="hero-body">
+            <a href="index.html">
+                <p class="title">Recipe Hub</p>
+            </a>
+            <p class="subtitle">Enjoy your recipe and locate a local Charlotte grocery store!</p>
+        </div>
+    </section>
+    
     <!-- Recent Searches -->
     <aside>
         <h1>Recent Searches</h1>
@@ -31,26 +35,19 @@
         <button id="clearHistory">Clear History</button>
     </aside>
 
-
     <section id="recipeResults" class="hero">
         <div class="hero-body">
 
-            <div id="recipe-title">title</div>
+            <div id="recipe-title" class="content is-large"></div>
             <img id="recipe-img" src="" alt="">
             <div id="recipe-ingredients-container">
-                <p>ingredients & measurements</p>
                 <ul id="recipe-ingredients"></ul>
             </div>
-            <div id="recipe-instructions">instructions</div>
-            
+            <div id="recipe-instructions"></div>
+
         </div>
 
     </section>
-
-    <section id="return">
-        <button id="return-to-main">Return to Main</button>
-    </section>
-
 
     <section id="map-section">
         <div class="container">
@@ -59,8 +56,23 @@
                     <div class="box" id="my-map"></div>
                 </div>
             </div>
+            <!-- Return Home Button-->
+            <section id="return">
+                <div class="buttons is-centered">
+                    <button id="return-to-main" class="button is-link">Return to Home</button>
+                </div>
+            </section>
         </div>
     </section>
+
+    <!-- Footer/Closing Info -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Recipe Hub</strong> by Calm Tornadoes!</a>
+            </p>
+        </div>
+    </footer>
 
     <!-- JQuery Added -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
