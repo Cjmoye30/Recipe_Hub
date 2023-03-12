@@ -1,7 +1,7 @@
 $(function () {
 
     // Return home
-    $("#return-to-main").click(function(){
+    $("#return-to-main").click(function () {
         location.href = "index.html";
     })
 
@@ -16,6 +16,7 @@ $(function () {
                 return response.json()
             })
             .then(function (data) {
+                var name = data.meals[0].strMeal;
                 var mealData = data.meals[0];
                 for (var i = 1; i < 20; i++) {
                     if (mealData[["strIngredient" + i]] !== "" && mealData[["strMeasure" + i]] !== "" && mealData[["strMeasure" + i]] !== null) {
@@ -26,17 +27,58 @@ $(function () {
                         $("#recipe-ingredients").append(ingredientEl);
                     }
                 }
-    
+
                 var recipeTitle = data.meals[0].strMeal;
                 var recipeImg = data.meals[0].strMealThumb;
                 var recipeInstrustions = data.meals[0].strInstructions;
-    
+
                 $("#recipe-title").text(recipeTitle);
                 $("#recipe-img").attr("src", recipeImg);
-                $("#recipe-instructions").text(recipeInstrustions)
+                $("#recipe-instructions").text(recipeInstrustions);
+
+                return name;
             })
     }
     mealByID(lastRecipe);
-
 })
 
+// Displaying local storage in recent searches section
+function displaySearches() {
+
+    // Retrieve local storage and store as a variable
+    var storedRecipes = JSON.parse(localStorage.getItem("searchHistory"));
+
+    if (storedRecipes.length !== null) {
+        $("#clearHistory").attr("style", "display: block");
+    }
+
+    for (var i = 0; i < storedRecipes.length; i++) {
+
+        // Creating a list item for each of the stored items
+
+        // Fetching the name of each of the stored items
+        fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + storedRecipes[i])
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (data) {
+
+                // Targeting the name of the recipe
+                var name = data.meals[0].strMeal;
+
+                // Create and append list elements
+                var listEl = $("<li>");
+                listEl.text(name);
+                $("#searchHistory").append(listEl);
+            })
+    }
+}
+
+// Clear Local Storage
+$("#clearHistory").click(function(){
+    localStorage.clear();
+    $("#searchHistory").text("");
+    $("#clearHistory").attr("style", "display: none");
+})
+
+displaySearches();
