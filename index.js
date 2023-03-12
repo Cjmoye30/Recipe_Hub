@@ -1,27 +1,29 @@
+// Have to define this outside for scope
 $(function () {
 
     // start of maps api
     function initMap() {
 
-        var map = L.map("my-map").setView([35.2271, -80.8431], 13);
+        var map = L.map("my-map").setView([35.2271, -80.8431], 12);
 
-        // Get your own API Key on https://myprojects.geoapify.com
+        // api key
         var myAPIKey = "fd3d5e013b4b4cea96e30a0054594a65";
 
         // Retina displays require different mat tiles quality
         var isRetina = L.Browser.retina;
 
+        // map URLs
         var baseUrl =
             "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey={apiKey}";
         var retinaUrl =
             "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey={apiKey}";
 
-        // Add map tiles layer. Set 20 as the maximal zoom and provide map data attribution.
+        // add map tile layers
         L.tileLayer(isRetina ? retinaUrl : baseUrl, {
             attribution:
                 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | © OpenStreetMap <a href="https://www.openstreetmap.org/copyright" target="_blank">contributors</a>',
             apiKey: myAPIKey,
-            maxZoom: 13,
+            maxZoom: 12,
             id: "osm-bright",
         }).addTo(map);
         var markerIcon = L.icon({
@@ -31,7 +33,9 @@ $(function () {
             popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
         });
 
-        fetch("https://api.geoapify.com/v2/places?categories=commercial.supermarket&filter=place:51ad15dd56663554c0591d95d55d619a4140f00101f90107b5020000000000c00206920309436861726c6f747465&lang=en&limit=20&apiKey=fd3d5e013b4b4cea96e30a0054594a65")
+        // fetch URL 
+        fetch("https://api.geoapify.com/v2/places?categories=commercial.supermarket&filter=place:51ad15dd56663554c0591d95d55d619a4140f00101f90107b5020000000000c00206920309436861726c6f747465&lang=en&limit=30&apiKey=fd3d5e013b4b4cea96e30a0054594a65")
+            // for loop to place markers on map from array
             .then((response) => response.json())
             .then((result) => {
                 console.log(result);
@@ -55,14 +59,11 @@ $(function () {
 
 
     // Query Selectors / Event Handlers
-
     $("#recipe-search-form").on("submit", function (e) {
         e.preventDefault();
         $("#recipe-results").text("")
-        var userRecipe = $("#user-recipe-input").val();
-
-        console.log(userRecipe);
-        searchByName(userRecipe);
+        var userSearchEntry = $("#user-recipe-input").val();
+        searchByName(userSearchEntry);
     })
 
     // Event handler tied to the newly created buttons if there is more than 1 option available for the recipe that they entered
@@ -85,6 +86,10 @@ $(function () {
     // Fetch recipe by name
     // Should limit the search results to 5, and then have a button to search for more which would increase the index by 5
     function searchByName(meal) {
+
+        // Clear results from previous search when called
+        $("#search-results-container").text("");
+
         fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + meal)
             .then(function (response) {
                 return response.json()
@@ -99,25 +104,16 @@ $(function () {
 
                 // Wrap the for loop in a function and if a button is clicked, then run the fuction again
 
-                // Show more options
-                $("#show-more").click(function () {
-                    showOptions()
-                })
-
-                function showOptions() {
-                    for (var i = 0; i < recipeOptionsNum; i += 5) {
-                        var idMeal = data.meals[i].idMeal;
-                        var mealOptionEl = $("<button>").text(data.meals[i].strMeal).attr("id", idMeal).addClass("recipe-option");
-                        $("#search-results-container").append(mealOptionEl);
-                        searchIndex++;
-                        $("#results-qty").text(searchIndex + " out of " + recipeOptionsNum);
-                    }
+                for (var i = 0; i < recipeOptionsNum; i++) {
+                    var idMeal = data.meals[i].idMeal;
+                    var mealOptionEl = $("<button>").text(data.meals[i].strMeal).attr("id", idMeal).addClass("recipe-option").css("background-image", "url(" +data.meals[i].strMealThumb+")").addClass("tile is-4");
+                    $("#search-results-container").append(mealOptionEl);
+                    searchIndex++;
+                    $("#results-qty").text(searchIndex + " out of " + recipeOptionsNum);
                 }
-                showOptions();
-            })
+            }
+            )
     }
-
-
 
     // Fetch random recipe
     function singleRandomMeal() {
@@ -159,3 +155,4 @@ $(function () {
     initStorage();
     initMap();
 });
+

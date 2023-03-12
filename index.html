@@ -30,7 +30,7 @@
     </section>
 
     <!-- Search Recipe Section -->
-    <section>
+    <section id="search-recipes">
       <div class="container is-fluid">
         <div class="notification is-primary">Find a Recipe</strong>
           <div class="control">
@@ -42,14 +42,15 @@
               </div>
 
             </form>
-            <ul id="search-results-container"></ul>
+            <ul id="search-results-container" class="tile is-vertical is-multiline"></ul>
 
-            <div id="results-options">
-
-              <p id="results-num">Showing: <span id="results-qty"></span></p>
-              <button id="show-more">Show More</button>
-
+            <!-- Return back to top of listed options - requires the section to have an ID or class name -->
+            <div id="return">
+              <a href="#search-recipes">
+                <button>Back to Top</button>
+              </a>
             </div>
+
           </div>
         </div>
       </div>
