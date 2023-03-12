@@ -29,3 +29,8 @@ header {
     height: 400px;
     margin: 30px;
 }
+
+/* Pseudo Selectors */
+#clearHistory {
+    display: none;
+}
