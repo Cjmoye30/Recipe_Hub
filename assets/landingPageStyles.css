@@ -15,7 +15,6 @@
 
 #map-section {
     background-color: lightgrey;
-    margin-bottom: 20px;
 }
 
 ul {
@@ -39,9 +38,15 @@ ul {
 }
 
 .container {
-    height: 500px;
+    height: 550px;
 }
 
 .footer {
     background-color: white;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.columns {
+    margin-right: 0;
 }
