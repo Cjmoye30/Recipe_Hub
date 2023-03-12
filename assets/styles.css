@@ -1,0 +1,12 @@
+/* Recipe Search Section */
+#search-results-container {
+    margin: 20px 0;
+}
+
+.recipe-option {
+    width: 100%;
+}
+
+#results-options {
+    /* display: none; */
+}
