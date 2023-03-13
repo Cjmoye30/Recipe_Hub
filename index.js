@@ -1,3 +1,4 @@
+// Have to define this outside for scope
 $(function () {
 
     // start of maps api
@@ -34,22 +35,22 @@ $(function () {
 
         // fetch URL 
         fetch("https://api.geoapify.com/v2/places?categories=commercial.supermarket&filter=place:51ad15dd56663554c0591d95d55d619a4140f00101f90107b5020000000000c00206920309436861726c6f747465&lang=en&limit=30&apiKey=fd3d5e013b4b4cea96e30a0054594a65")
-        // for loop to place markers on map from array
-        .then((response) => response.json())
-        .then((result) => {
-          console.log(result);
-          result.features.forEach((feature) => {
-            let markerPopup = L.popup().setContent(
-              `<div>${feature.properties.address_line1}</div><div>${feature.properties.address_line2}</div>`
-            );
-            let marker = L.marker(
-              [feature.properties.lat, feature.properties.lon],
-              { icon: markerIcon }
-            )
-              .bindPopup(markerPopup).addTo(map);
-          });
-        })
-        .catch((error) => console.log("error", error));
+            // for loop to place markers on map from array
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+                result.features.forEach((feature) => {
+                    let markerPopup = L.popup().setContent(
+                        `<div>${feature.properties.address_line1}</div><div>${feature.properties.address_line2}</div>`
+                    );
+                    let marker = L.marker(
+                        [feature.properties.lat, feature.properties.lon],
+                        { icon: markerIcon }
+                    )
+                        .bindPopup(markerPopup).addTo(map);
+                });
+            })
+            .catch((error) => console.log("error", error));
     }
 
     // end of map api
@@ -58,51 +59,65 @@ $(function () {
 
 
     // Query Selectors / Event Handlers
-
     $("#recipe-search-form").on("submit", function (e) {
         e.preventDefault();
-        $("#recipe-results").text("")
-        var userRecipe = $("#user-recipe-input").val();
-
-        console.log(userRecipe);
-        searchByName(userRecipe);
+        $("#recipe-results").text("");
+        var userSearchEntry = $("#user-recipe-input").val();
+        searchByName(userSearchEntry);
     })
-    
+
     // Event handler tied to the newly created buttons if there is more than 1 option available for the recipe that they entered
     // Grabbing the ID from the target of the element of the button we are clicking
     // Using that ID to then pull the recipe contents from the ID function 
-    $("#recipe-results").click(function (e) {
-        var buttonID = e.target.id;
+    $("#search-results-container").click(function (e) {
 
-        // Send the user value to local storage
-        console.log(buttonID);
-        searchHistory.push(buttonID);
-        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+        // Conditional statement to tareget only the recipe-option cards - otherwise the entire parent container will be logged when clicking and result in an error
+        if (e.target.classList.contains("recipe-option")) {
+            var buttonID = e.target.id;
 
-        setTimeout(function(){
-            location.href = "landingPage.html";
-        }, 250)
+            // Send the user value to local storage
+            console.log(buttonID);
+            searchHistory.push(buttonID);
+            localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
+            setTimeout(function () {
+                location.href = "landingPage.html";
+            }, 250)
+        }
     })
 
     // Fetch recipe by name
     function searchByName(meal) {
+
+        // Clear results from previous search when called
+        $("#search-results-container").text("");
+
         fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + meal)
             .then(function (response) {
                 return response.json()
             })
             .then(function (data) {
-                // Console Logging all of the data
 
-                var recipeOptionsNum = data.meals.length;
-                console.log(recipeOptionsNum);
+                // Conditional to end the function and report zero results to the user and avoid error
+                if (data.meals <= 0 || data.meals == null) {
+                    $("#search-results-container").text("No recipes for that option found. Please enter another option!")
+                    return
+                } else {
 
-                for (var i = 0; i < recipeOptionsNum; i++) {
-                    var idMeal = data.meals[i].idMeal;
-                    var mealOptionEl = $("<button>").text(data.meals[i].strMeal).attr("id", idMeal).addClass("recipe-option");
-                    $("#recipe-results").append(mealOptionEl);
+                    var recipeOptionsNum = data.meals.length;
+                    // var searchIndex = 0;
+    
+                    // Create and append all data into search results container
+                    for (var i = 0; i < recipeOptionsNum; i++) {
+                        var idMeal = data.meals[i].idMeal;
+                        var mealOptionEl = $("<button>").html("<span class = 'recipe-title'>" + data.meals[i].strMeal + "</span>").attr("id", idMeal).addClass("recipe-option").css("background-image", "url(" + data.meals[i].strMealThumb + ")").addClass("tile is-4 recipe-name");
+    
+                        $("#search-results-container").append(mealOptionEl)
+                        // searchIndex++;
+                    }
                 }
-            })
+            }
+            )
     }
 
     // Fetch random recipe
@@ -122,19 +137,20 @@ $(function () {
     }
 
     var searchHistory = [];
-    function initStorage(){
+    function initStorage() {
         var storedRecipes = JSON.parse(localStorage.getItem("searchHistory"));
-        if(storedRecipes !== null) {
+        if (storedRecipes !== null) {
             searchHistory = storedRecipes;
             console.log(searchHistory);
         }
+
     }
 
     // Event listeners for search and random generate button
     // Adding a delay so that the function can run before transitioning to the next page
     $("#random-button-search").click(function () {
         singleRandomMeal();
-        setTimeout(function(){
+        setTimeout(function () {
             location.href = "landingPage.html";
         }, 250)
     })
@@ -144,3 +160,4 @@ $(function () {
     initStorage();
     initMap();
 });
+

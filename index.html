@@ -20,7 +20,7 @@
     </section>
 
     <!-- Random Recipe Section -->
-    <section class="section is-large">
+    <section id="search-recipes-random" class="section is-large">
       <div class="container is-fluid">
         <div class="notification is-light">Find a Recipe</strong>
           <div class="control">
@@ -30,7 +30,7 @@
     </section>
 
     <!-- Search Recipe Section -->
-    <section>
+    <section id="search-recipes">
       <div class="container is-fluid">
         <div class="notification is-primary">Find a Recipe</strong>
           <div class="control">
@@ -42,7 +42,15 @@
               </div>
 
             </form>
-            <ul class="search-results-container"></ul>
+            <ul id="search-results-container" class="tile is-vertical is-multiline"></ul>
+
+            <!-- Return back to top of listed options - requires the section to have an ID or class name -->
+            <div id="return">
+              <a href="#search-recipes">
+                <button>Back to Top</button>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>

@@ -1,0 +1,38 @@
+/* Recipe Search Section */
+#search-results-container {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.recipe-option {
+    height: 350px;
+    width: auto;
+    background-position: center;
+    object-fit: fill;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+    font-size: 48px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.recipe-title {
+    background-color: whitesmoke;
+    border-radius: 25px 0 10px 0;
+    box-shadow: 5px 5px 10px black;
+    color: black;
+    font-style: italic;
+    opacity: .6;
+    width: 90%;
+}
+
+.recipe-option:hover {
+    background-size: 120%;
+    transition: 0.40s ease;
+}
