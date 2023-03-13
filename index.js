@@ -103,13 +103,12 @@ $(function () {
 
 
                 // Wrap the for loop in a function and if a button is clicked, then run the fuction again
-
                 for (var i = 0; i < recipeOptionsNum; i++) {
                     var idMeal = data.meals[i].idMeal;
-                    var mealOptionEl = $("<button>").text(data.meals[i].strMeal).attr("id", idMeal).addClass("recipe-option").css("background-image", "url(" +data.meals[i].strMealThumb+")").addClass("tile is-4");
-                    $("#search-results-container").append(mealOptionEl);
+                    var mealOptionEl = $("<button>").html("<span class = 'recipe-title'>" + data.meals[i].strMeal + "</span>").attr("id", idMeal).addClass("recipe-option").css("background-image", "url(" + data.meals[i].strMealThumb + ")").addClass("tile is-4 recipe-name");
+
+                    $("#search-results-container").append(mealOptionEl)
                     searchIndex++;
-                    $("#results-qty").text(searchIndex + " out of " + recipeOptionsNum);
                 }
             }
             )
