@@ -9,62 +9,50 @@
 </head>
 
 <body>
-  <main>
-
-    <!-- Header Section -->
-    <section class="hero is-success">
-      <div class="hero-body">
-        <p class="title">Recipe Hub</p>
-        <p class="subtitle">Find Recipes and locate grocery stores </p>
-      </div>
-    </section>
-
+    <section class="hero is-body">
+        <div class="hero-head">
+        <section class="hero is-large is-bold is-primary" style="background: url(https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg) no-repeat center center; background-size: cover;">
+        <div class="hero-body">
+                <p style="font-size:xxx-large; font-weight: 1000; font-size-adjust: inherit;">Recipe Hub</p>
+                <p style="font-size:xx-large; font-weight: 1000; font-size-adjust: inherit;">Find Recipes and locate grocery stores!</p>
+        </div>
+  
     <!-- Random Recipe Section -->
-    <section id="search-recipes-random" class="section is-large">
-      <div class="container is-fluid">
-        <div class="notification is-light">Find a Recipe</strong>
-          <div class="control">
-            <div class="control">
-              <button id="random-button-search" class="button is-link" type="submit">Random Recipe</button>
-            </div>
+    <section id="search-recipes-random">      
+        <div class="container is-fluid">
+            <div class="notification is-primary has-text-centered">Find a Recipe</strong>
+        <div class="control">
+            <button id="random-button-search" button class="button is-fluid is-link">Random Recipe</button>
+        <ul class="search-results-container"></div>
+                <ul style="background-color: rgb(0, 204, 255); empty-cells: show;"></div>
+       </div>
+    </section>
+    <section id="search-recipes">    
+            <div class="container is-fluid">
+            <div class="notification is-primary has-text-centered">Find a Recipe</strong>
+                <input class="input" type="text" placeholder="Search repices">
     </section>
 
-    <!-- Search Recipe Section -->
+    <!-- Recipe Section -->
     <section id="search-recipes">
       <div class="container is-fluid">
         <div class="notification is-primary">Find a Recipe</strong>
           <div class="control">
             <form id="recipe-search-form">
-
               <div class="control">
                 <input id="user-recipe-input" class="input" type="text" placeholder="Recipe input">
                 <button class="button is-dark">Submit</button>
+                <ul class="search-results-container">
               </div>
-
-            </form>
-            <ul id="search-results-container" class="tile is-vertical is-multiline"></ul>
-
-            <!-- Return back to top of listed options - requires the section to have an ID or class name -->
-            <div id="return">
+                <ul style="background-color: rgb(0, 204, 255);">
+                </div>
+             </div>   
+           </div>
+           <!-- Return back to top of listed options - requires the section to have an ID or class name -->
               <a href="#search-recipes">
                 <button>Back to Top</button>
               </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
     </section>
-  </main>
-
-  <!-- Footer/Closing Info -->
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Recipe Hub</strong> by Calm Tornadoes!</a>
-      </p>
-    </div>
-  </footer>
 
   <!-- JQuery Added -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -73,5 +61,14 @@
   <script src="index.js" async defer></script>
 
 </body>
-
-</html>
+    </div>
+       <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>Recipe Hub</strong> by Calm Tornadoes!</a>
+              </p>
+                <a href="https://github.com/Cjmoye30/Project1_Recipe_Hub">Git Hub Project</a>
+            </div>
+        </footer>
+      </div> 
+    </html>
