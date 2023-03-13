@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
-    <link rel="stylesheet" href="./assets/styles.css" />
-    <title>Recipe Hub</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <title>Recipe Hub</title>
 </head>
 
 <body>
@@ -16,33 +16,50 @@
                 <p style="font-size:xxx-large; font-weight: 1000; font-size-adjust: inherit;">Recipe Hub</p>
                 <p style="font-size:xx-large; font-weight: 1000; font-size-adjust: inherit;">Find Recipes and locate grocery stores!</p>
         </div>
-    
-    <section class="section">      
+  
+    <!-- Random Recipe Section -->
+    <section id="search-recipes-random">      
         <div class="container is-fluid">
             <div class="notification is-primary has-text-centered">Find a Recipe</strong>
         <div class="control">
-            <button class="button is-fluid is-link">Random Recipe</button>
+            <button id="random-button-search" button class="button is-fluid is-link">Random Recipe</button>
         <ul class="search-results-container"></div>
                 <ul style="background-color: rgb(0, 204, 255); empty-cells: show;"></div>
        </div>
     </section>
-    <section class="section">    
+    <section id="search-recipes">    
             <div class="container is-fluid">
             <div class="notification is-primary has-text-centered">Find a Recipe</strong>
                 <input class="input" type="text" placeholder="Search repices">
-            <div class="control">
-                <button class="button is-dark">Submit</button>
-            <ul class="search-results-container"></div>
-                <ul style="background-color: rgb(0, 204, 255);"></div>
-    </div>
     </section>
-    <div class="history has-text-centered" id="search-history">
-        <label class="label is-primary">Search History</label>
-            <p id='search-history-help'>Previously Searched Recipes Here.</p>
-            <ul id="search-history-list">
-        </ul>
-    </div>
-</div>
+
+    <!-- Recipe Section -->
+    <section id="search-recipes">
+      <div class="container is-fluid">
+        <div class="notification is-primary">Find a Recipe</strong>
+          <div class="control">
+            <form id="recipe-search-form">
+              <div class="control">
+                <input id="user-recipe-input" class="input" type="text" placeholder="Recipe input">
+                <button class="button is-dark">Submit</button>
+                <ul class="search-results-container">
+              </div>
+                <ul style="background-color: rgb(0, 204, 255);">
+                </div>
+             </div>   
+           </div>
+           <!-- Return back to top of listed options - requires the section to have an ID or class name -->
+              <a href="#search-recipes">
+                <button>Back to Top</button>
+              </a>
+    </section>
+
+  <!-- JQuery Added -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <!-- JavaScript File Added -->
+  <script src="index.js" async defer></script>
+
 </body>
     </div>
        <footer class="footer">
