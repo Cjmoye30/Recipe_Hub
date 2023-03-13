@@ -25,6 +25,7 @@
 aside {
     margin: 0 auto;
     height: 100vh;
+    width: 250px;
     align-items: center;
     justify-content: center;
 }
@@ -41,7 +42,11 @@ aside {
 }
 
 .search-history-buttons {
+    display: flex;
     word-wrap: break-word;
+    overflow: hidden;
+    padding: 20px;
+
 }
 
 ul {

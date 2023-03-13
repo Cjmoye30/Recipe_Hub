@@ -77,7 +77,7 @@ function displaySearches() {
                 var name = data.meals[0].strMeal;
 
                 // Create and append list elements
-                var listEl = $("<button>").addClass("button is-medium is-responsive search-history-buttons").attr("id", data.meals[0].idMeal);
+                var listEl = $("<button>").addClass("button is-responsive search-history-buttons").attr("id", data.meals[0].idMeal);
                 listEl.text(name);
                 $("#searchHistory").append(listEl);
             })

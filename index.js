@@ -72,22 +72,21 @@ $(function () {
     $("#search-results-container").click(function (e) {
 
         // Conditional statement to tareget only the recipe-option cards - otherwise the entire parent container will be logged when clicking and result in an error
-        if(e.target.classList.contains("recipe-option")) {
+        if (e.target.classList.contains("recipe-option")) {
             var buttonID = e.target.id;
 
             // Send the user value to local storage
             console.log(buttonID);
             searchHistory.push(buttonID);
             localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-    
+
             setTimeout(function () {
                 location.href = "landingPage.html";
-            }, 1250)
+            }, 250)
         }
     })
 
     // Fetch recipe by name
-    // Should limit the search results to 5, and then have a button to search for more which would increase the index by 5
     function searchByName(meal) {
 
         // Clear results from previous search when called
@@ -98,20 +97,24 @@ $(function () {
                 return response.json()
             })
             .then(function (data) {
-                // Console Logging all of the data
 
-                var recipeOptionsNum = data.meals.length;
-                var searchIndex = 0;
-                console.log(recipeOptionsNum);
+                // Conditional to end the function and report zero results to the user and avoid error
+                if (data.meals <= 0 || data.meals == null) {
+                    $("#search-results-container").text("No recipes for that option found. Please enter another option!")
+                    return
+                } else {
 
-
-                // Wrap the for loop in a function and if a button is clicked, then run the fuction again
-                for (var i = 0; i < recipeOptionsNum; i++) {
-                    var idMeal = data.meals[i].idMeal;
-                    var mealOptionEl = $("<button>").html("<span class = 'recipe-title'>" + data.meals[i].strMeal + "</span>").attr("id", idMeal).addClass("recipe-option").css("background-image", "url(" + data.meals[i].strMealThumb + ")").addClass("tile is-4 recipe-name");
-
-                    $("#search-results-container").append(mealOptionEl)
-                    searchIndex++;
+                    var recipeOptionsNum = data.meals.length;
+                    // var searchIndex = 0;
+    
+                    // Create and append all data into search results container
+                    for (var i = 0; i < recipeOptionsNum; i++) {
+                        var idMeal = data.meals[i].idMeal;
+                        var mealOptionEl = $("<button>").html("<span class = 'recipe-title'>" + data.meals[i].strMeal + "</span>").attr("id", idMeal).addClass("recipe-option").css("background-image", "url(" + data.meals[i].strMealThumb + ")").addClass("tile is-4 recipe-name");
+    
+                        $("#search-results-container").append(mealOptionEl)
+                        // searchIndex++;
+                    }
                 }
             }
             )
