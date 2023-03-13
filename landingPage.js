@@ -11,11 +11,13 @@ $(function () {
 
     // Fetch recipe by ID
     function mealByID(id) {
+
         fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)
             .then(function (response) {
                 return response.json()
             })
             .then(function (data) {
+                console.log(data.meals[0].idMeal);
                 var name = data.meals[0].strMeal;
                 var mealData = data.meals[0];
                 for (var i = 1; i < 20; i++) {
@@ -25,6 +27,7 @@ $(function () {
                         var ingredientPlusMeasure = ingredient + "\n" + measure;
                         var ingredientEl = $("<li>").text(ingredientPlusMeasure);
                         $("#recipe-ingredients").append(ingredientEl);
+                        console.log(ingredient + "\n" + measure)
                     }
                 }
 
@@ -39,6 +42,13 @@ $(function () {
                 return name;
             })
     }
+
+    // Search recipe on button click from history
+    $("#searchHistory").click(function (e) {
+        $("#recipe-ingredients").text("");
+        mealByID(e.target.id);
+    })
+
     mealByID(lastRecipe);
 })
 
@@ -67,7 +77,7 @@ function displaySearches() {
                 var name = data.meals[0].strMeal;
 
                 // Create and append list elements
-                var listEl = $("<li>");
+                var listEl = $("<button>").addClass("button is-medium is-responsive search-history-buttons").attr("id", data.meals[0].idMeal);
                 listEl.text(name);
                 $("#searchHistory").append(listEl);
             })
@@ -75,7 +85,7 @@ function displaySearches() {
 }
 
 // Clear Local Storage
-$("#clearHistory").click(function(){
+$("#clearHistory").click(function () {
     localStorage.clear();
     $("#searchHistory").text("");
     $("#clearHistory").attr("style", "display: none");

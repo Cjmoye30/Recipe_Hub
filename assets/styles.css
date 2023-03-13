@@ -30,10 +30,6 @@
     width: 90%;
 }
 
-#search-recipes-random {
-    display: none;
-}
-
 .recipe-option:hover {
     background-size: 120%;
     transition: 0.40s ease;

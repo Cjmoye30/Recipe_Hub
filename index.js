@@ -61,7 +61,7 @@ $(function () {
     // Query Selectors / Event Handlers
     $("#recipe-search-form").on("submit", function (e) {
         e.preventDefault();
-        $("#recipe-results").text("")
+        $("#recipe-results").text("");
         var userSearchEntry = $("#user-recipe-input").val();
         searchByName(userSearchEntry);
     })
