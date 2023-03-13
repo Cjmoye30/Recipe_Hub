@@ -70,17 +70,20 @@ $(function () {
     // Grabbing the ID from the target of the element of the button we are clicking
     // Using that ID to then pull the recipe contents from the ID function 
     $("#search-results-container").click(function (e) {
-        var buttonID = e.target.id;
 
-        // Send the user value to local storage
-        console.log(buttonID);
-        searchHistory.push(buttonID);
-        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+        // Conditional statement to tareget only the recipe-option cards - otherwise the entire parent container will be logged when clicking and result in an error
+        if(e.target.classList.contains("recipe-option")) {
+            var buttonID = e.target.id;
 
-        setTimeout(function () {
-            location.href = "landingPage.html";
-        }, 250)
-
+            // Send the user value to local storage
+            console.log(buttonID);
+            searchHistory.push(buttonID);
+            localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    
+            setTimeout(function () {
+                location.href = "landingPage.html";
+            }, 1250)
+        }
     })
 
     // Fetch recipe by name

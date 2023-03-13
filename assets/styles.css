@@ -24,9 +24,11 @@
 
 .recipe-title {
     background-color: whitesmoke;
+    border-radius: 25px 0 10px 0;
+    box-shadow: 5px 5px 10px black;
     color: black;
     font-style: italic;
-    opacity: .7;
+    opacity: .6;
     width: 90%;
 }
 
