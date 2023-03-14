@@ -40,19 +40,16 @@ SO THAT I can get the required ingredients for the recipe selected
 **`Then`** I can view a list of grocery stores
 
 ## Installation / Live Site
-[Github Pages Live Site]()
+[Github Pages Live Site](https://cjmoye30.github.io/Project1_Recipe_Hub/)
 
 ## Usage / Screenshot
-[TBD](...)
+<img width="1201" alt="Screenshot 2023-03-13 at 9 46 24 PM" src="https://user-images.githubusercontent.com/122712555/224871121-4f0ec173-5dad-4beb-89af-7601394ae988.png">
 
 ## What we learned
 
-### HTML
-- Utilized HTML to syle website
+### [HTML/CSS: Bulma](https://bulma.io/)
+- Utilized HTML to style website
 - Merging files may cause conflicts
-- 
-
-### [CSS Framework: Bulma](https://bulma.io/)
 - Easy to use (documentation and site)
 - Less codes to write (readily available codes)
 - Forced to ultilize columns (grid system)
@@ -67,11 +64,10 @@ SO THAT I can get the required ingredients for the recipe selected
 - Randomn meal search options
 - Meal categories available
 
-### [API 2: Mapbox]((https://www.geoapify.com/))
+### [API 2: Geoapify](https://www.geoapify.com/)
 - Free API access
 - Flexible configuration
--
--
+- Utilized two seperate API's created a for loop for plotting markers
 
 ## Resources / Credits
 * [Presentation](https://docs.google.com/presentation/d/1jQ-VpiBo03JUBuU0R8XDv61vs0MOMoEUB0hWLaX8zTY/edit?usp=sharing)
