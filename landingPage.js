@@ -24,10 +24,8 @@ $(function () {
                     if (mealData[["strIngredient" + i]] !== "" && mealData[["strMeasure" + i]] !== "" && mealData[["strMeasure" + i]] !== null) {
                         var ingredient = mealData["strIngredient" + i];
                         var measure = mealData["strMeasure" + i];
-                        var ingredientPlusMeasure = ingredient + "\n" + measure;
-                        var ingredientEl = $("<li>").text(ingredientPlusMeasure);
+                        var ingredientEl = $("<li>").html("<span class = 'ingredient'>" + ingredient + "</span> <span class = 'measure'>" + measure + "</span>").addClass("ingredientsAndMeasure");
                         $("#recipe-ingredients").append(ingredientEl);
-                        console.log(ingredient + "\n" + measure)
                     }
                 }
 
