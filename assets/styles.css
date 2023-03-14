@@ -41,3 +41,21 @@
     background-size: 120%;
     transition: 0.40s ease;
 }
+
+.footer {
+    background-color: white;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.tile {
+    flex-basis: auto;
+}
+
+#back-to-top-btn {
+    padding-bottom: 5px;
+}
+
+#search-recipes-random {
+    margin-bottom: 10px;
+}
