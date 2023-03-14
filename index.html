@@ -9,66 +9,70 @@
 </head>
 
 <body>
-    <section class="hero is-body">
-        <div class="hero-head">
-        <section class="hero is-large is-bold is-primary" style="background: url(https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg) no-repeat center center; background-size: cover;">
+  <section class="hero is-body">
+    <div class="hero-head">
+      <section class="hero is-large is-bold is-primary"
+        style="background: url(https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg) no-repeat center center; background-size: cover;">
         <div class="hero-body">
-                <p style="font-size:xxx-large; font-weight: 1000; font-size-adjust: inherit;">Recipe Hub</p>
-                <p style="font-size:xx-large; font-weight: 1000; font-size-adjust: inherit;">Find Recipes and locate grocery stores!</p>
+          <p style="font-size:xxx-large; font-weight: 1000; font-size-adjust: inherit;">Recipe Hub</p>
+          <p style="font-size:xx-large; font-weight: 1000; font-size-adjust: inherit;">Find Recipes and locate grocery
+            stores!</p>
         </div>
-  
-    <!-- Random Recipe Section -->
-    <section id="search-recipes-random">      
-        <div class="container is-fluid">
-            <div class="notification is-primary has-text-centered">Find a Recipe</strong>
-        <div class="control">
-            <button id="random-button-search" button class="button is-fluid is-link">Random Recipe</button>
-        <ul class="search-results-container"></div>
-                <ul style="background-color: rgb(0, 204, 255); empty-cells: show;"></div>
-       </div>
-    </section>
-    <section id="search-recipes">    
-            <div class="container is-fluid">
-            <div class="notification is-primary has-text-centered">Find a Recipe</strong>
-                <input class="input" type="text" placeholder="Search repices">
-    </section>
 
-    <!-- Recipe Section -->
-    <section id="search-recipes">
-      <div class="container is-fluid">
-        <div class="notification is-primary">Find a Recipe</strong>
-          <div class="control">
-            <form id="recipe-search-form">
+        <!-- Random Recipe Section -->
+        <section id="search-recipes-random">
+          <div class="container is-fluid">
+            <div class="notification is-primary has-text-centered">Find a Recipe</strong>
               <div class="control">
-                <input id="user-recipe-input" class="input" type="text" placeholder="Recipe input">
-                <button class="button is-dark">Submit</button>
-                <ul class="search-results-container">
+                <button id="random-button-search" button class="button is-fluid is-link">Random Recipe</button>
               </div>
-                <ul style="background-color: rgb(0, 204, 255);">
-                </div>
-             </div>   
-           </div>
-           <!-- Return back to top of listed options - requires the section to have an ID or class name -->
-              <a href="#search-recipes">
-                <button>Back to Top</button>
-              </a>
-    </section>
+              <ul style="background-color: rgb(0, 204, 255); empty-cells: show;">
+            </div>
+          </div>
+        </section>
 
-  <!-- JQuery Added -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <section id="search-recipes">
+          <div class="container is-fluid">
+            <div class="notification is-primary">Find a Recipe</strong>
+              <div class="control">
+                <form id="recipe-search-form">
+                  <div class="control">
+                    <input id="user-recipe-input" class="input" type="text" placeholder="Recipe input">
+                    <div class="buttons is-centered">
+                      <button class="button is-dark" id="search-btn">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- Search Results Section -->
+            <div id="search-results">
+              <ul id="search-results-container"></ul>
+              <div class="buttons is-centered">
+                <a href="#search-recipes">
+                  <button class="button is-link return-top" id="back-to-top-btn">Back to Top</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
-  <!-- JavaScript File Added -->
-  <script src="index.js" async defer></script>
+        <!-- JQuery Added -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+        <!-- JavaScript File Added -->
+        <script src="index.js" async defer></script>
 
 </body>
-    </div>
-       <footer class="footer">
-            <div class="content has-text-centered">
-              <p>
-                <strong>Recipe Hub</strong> by Calm Tornadoes!</a>
-              </p>
-                <a href="https://github.com/Cjmoye30/Project1_Recipe_Hub">Git Hub Project</a>
-            </div>
-        </footer>
-      </div> 
-    </html>
+</div>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Recipe Hub</strong> by Calm Tornadoes!</a>
+    </p>
+    <a href="https://github.com/Cjmoye30/Project1_Recipe_Hub">Git Hub Project</a>
+  </div>
+</footer>
+</div>
+
+</html>

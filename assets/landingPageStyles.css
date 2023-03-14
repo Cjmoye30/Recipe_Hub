@@ -5,6 +5,7 @@
 
 #recipeResults {
     background-color: lightgrey;
+    text-align: center;
 }
 
 #my-map {
@@ -15,6 +16,7 @@
 
 #map-section {
     background-color: lightgrey;
+    margin-top: 12px;
 }
 
 .row {
@@ -24,14 +26,20 @@
 /* Side Searches */
 aside {
     margin: 0 auto;
-    height: 100vh;
-    width: 250px;
+    height: auto;
+    width: 350px;
     align-items: center;
     justify-content: center;
+    border-right: 2px;
+    border-bottom: 2px;
+    border-style: solid;
+    padding-bottom: 0;
+    background-color: lightslategray;
 }
 
 #clearHistory {
-    width: 100%;
+    width: 50%;
+    margin: 0 auto;
 }
 
 #searchHistory {
@@ -41,27 +49,32 @@ aside {
     padding: 0;
 }
 
+.search-history-section {
+    width: 100%;
+}
+
 .search-history-buttons {
     display: flex;
     word-wrap: break-word;
     overflow: hidden;
     padding: 20px;
-
+    height: max-content;
+    background-color: #c7ddb5;
+    border-color: white;
+    margin: 2px;
 }
 
-ul {
-    display: block;
-    list-style-type: disc;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 40px;
-    font-size: 20px;
-  }
-
 #recipe-ingredients-container {
-    margin-bottom: 15px;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.ingredientsAndMeasure {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .1px solid black;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 #return {
@@ -86,4 +99,16 @@ ul {
 /* Pseudo Selectors */
 #clearHistory {
     display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .content-holder {
+        flex-direction: column;
+    }
+    .search-history-section {
+        width: 100%;
+        height: auto;
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
 }

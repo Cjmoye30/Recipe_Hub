@@ -74,7 +74,7 @@ $(function () {
         // Conditional statement to tareget only the recipe-option cards - otherwise the entire parent container will be logged when clicking and result in an error
         if (e.target.classList.contains("recipe-option")) {
             var buttonID = e.target.id;
-
+            console.log(buttonID);
             // Send the user value to local storage
             console.log(buttonID);
             searchHistory.push(buttonID);
@@ -106,15 +106,16 @@ $(function () {
 
                     var recipeOptionsNum = data.meals.length;
                     // var searchIndex = 0;
-    
+
                     // Create and append all data into search results container
                     for (var i = 0; i < recipeOptionsNum; i++) {
                         var idMeal = data.meals[i].idMeal;
                         var mealOptionEl = $("<button>").html("<span class = 'recipe-title'>" + data.meals[i].strMeal + "</span>").attr("id", idMeal).addClass("recipe-option").css("background-image", "url(" + data.meals[i].strMealThumb + ")").addClass("tile is-4 recipe-name");
-    
+
                         $("#search-results-container").append(mealOptionEl)
                         // searchIndex++;
                     }
+                    $(".return-top").attr("style", "display: block");
                 }
             }
             )
