@@ -1,15 +1,129 @@
-.title {
-    text-align: center;
-    color: rgb(9, 0, 0);
-  }
+/* ---------- Color Palett ---------- */
+:root {
+    --c1: #F7F1E5;
+    --c2: #E7B10A;
+    --c3: #898121;
+    --c4: #4C4B16;
+    
+    --c5: #d1cfcb;
 
+    /* more if needed */
+}
+
+* {
+    /* border: .1px solid black; */
+    text-align: center;
+    font-size: 18px;
+}
+
+main {
+    min-height: 100vh;
+    background-color: var(--c1);
+    color: var(--c4);
+    font-family: 'Signika Negative', sans-serif;
+}
+
+strong, a {
+    color: var(--c1);
+}
+
+hr {
+    height: 5px;
+    background-color: var(--c4);
+    margin: 0 auto;
+}
+
+p {
+    font-size: 24px;
+    line-height: 3rem;
+}
+
+/* same styling for all buttons */
+.button {
+    background-color: var(--c4);
+    width: 50%;
+    max-width: 500px;
+    font-size: 18px;
+    color: var(--c1);
+    box-shadow: 5px 5px 10px black;
+}
+
+/* Header Section */
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 60px;
+    padding: 20px 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background: url("/assets/foodBg.jpg");
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    background-attachment: local;
+    height: 500px;
+}
+
+.hero-body {
+    padding: 0px 0px;
+    margin: 0;
+}
+
+.header-content{
+    background-color: white;
+    padding: 10px 20px;
+    opacity: .8;
+    width: 75%;
+    max-width: 1250px;
+    margin: 0 auto;
+    border-radius: 25px 0px;
+    box-shadow: 5px 5px 10px black;
+}
+  
 /* Recipe Search Section */
+
 #search-results-container {
-    margin: 20px 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+}
+
+/* Random Recipe Section */
+.random-recipe-content, #recipe-search-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 250px;
+    margin: 50px auto;
+}
+
+#search-recipes {
+    border-top: 5px solid var(--c4);
+    background-color: var(--c5);
+    padding-bottom: 20px;
+}
+
+#random-button-search, #search-btn {
+    margin: 0 auto;
+    padding: 25px 50px;
+    margin: 20px auto;
+    width: 100%;
+}
+
+
+/* Recipe Search Section */
+.form-input {
+    width: 100%;
+}
+
+#user-recipe-input {
+    margin: 20px auto;
+    max-width: 500px;
 }
 
 .recipe-option {
@@ -28,8 +142,10 @@
 }
 
 .recipe-title {
+    font-size: 30px;
+    padding: 5px 20px;
     background-color: whitesmoke;
-    border-radius: 25px 0 10px 0;
+    border-radius: 25px 0px;
     box-shadow: 5px 5px 10px black;
     color: black;
     font-style: italic;
@@ -43,9 +159,9 @@
 }
 
 .footer {
-    background-color: white;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    background-color: var(--c4);
+    color: var(--c1);
+    padding: 20px 0;
 }
 
 .tile {
@@ -54,11 +170,9 @@
 
 #back-to-top-btn {
     padding-bottom: 5px;
+    width: 100%;
 }
 
-#search-recipes-random {
-    margin-bottom: 10px;
-}
 
 #search-btn {
     margin-top: 10px;
@@ -66,4 +180,25 @@
 
 .return-top {
     display: none;
+}
+
+footer {
+    padding: 0;
+    margin: 0;
+}
+
+/* Pseudo */
+a:visited {
+    color: var(--c1);
+}
+
+.button:hover {
+    color: var(--c1);
+}
+
+@media screen and (max-width: 768px) {
+
+    .tile {
+        width: 100%;
+    }
 }

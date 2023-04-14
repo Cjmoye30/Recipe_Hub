@@ -3,76 +3,91 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
-  <link rel="stylesheet" href="./assets/styles.css" />
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Pacifico&family=Signika+Negative&display=swap"
+    rel="stylesheet">
+
   <title>Recipe Hub</title>
 </head>
 
 <body>
-  <section class="hero is-body">
-    <div class="hero-head">
-      <section class="hero is-large is-bold is-primary"
-        style="background: url(https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg) no-repeat center center; background-size: cover;">
-        <div class="hero-body">
-          <p style="font-size:xxx-large; font-weight: 1000; font-size-adjust: inherit;">Recipe Hub</p>
-          <p style="font-size:xx-large; font-weight: 1000; font-size-adjust: inherit;">Find Recipes and locate grocery
-            stores!</p>
+
+  <main>
+    <!-- Header / Opening Section -->
+    <section class="header">
+      <div class="header-content">
+        <p class="title header-title has-text-black has-text-centered">
+          Recipe Hub
+        </p>
+        <p class="subtitle has-text-black has-text-centered">
+          The place to find delicious recipes and local grocery stores!
+        </p>
+      </div>
+    </section>
+
+    <!-- Random Recipe Section -->
+    <section id="search-recipes-random">
+      <div class="random-recipe-content">
+        <p>Click below to be given a random recipe out of our diverse database of over 285 recipes with over 500 total
+          ingredients!</p>
+        <p>More recipes coming soon!</p>
+        <button id="random-button-search" class="button">Random Recipe</button>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Random Recipe Search -->
+    <section id="search-recipes">
+      <form id="recipe-search-form">
+        <div class="control form-input">
+          <p>Have something specific in mind?</p>
+          <p>Use the search box below to display all recipes with your chosen food or
+            ingredient!</p>
+          <input id="user-recipe-input" class="input has-text-centered" type="text"
+            placeholder="Try: Chicken, Beef, Pork, Salmon, etc!">
+          <div class="buttons is-centered">
+            <button class="button" id="search-btn">Submit</button>
+          </div>
         </div>
+      </form>
 
-        <!-- Random Recipe Section -->
-        <section id="search-recipes-random">
-          <div class="container is-fluid">
-            <div class="notification is-primary has-text-centered">Find a Recipe</strong>
-              <div class="control">
-                <button id="random-button-search" button class="button is-fluid is-link">Random Recipe</button>
-              </div>
-              <ul style="background-color: rgb(0, 204, 255); empty-cells: show;">
-            </div>
-          </div>
-        </section>
+      <!-- Search Results Section -->
+      <div id="search-results">
+        <ul id="search-results-container"></ul>
+        <div class="buttons is-centered">
+          <a href="#search-recipes">
+            <button class="button return-top" id="back-to-top-btn">Back to Top</button>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        <section id="search-recipes">
-          <div class="container is-fluid">
-            <div class="notification is-primary">Find a Recipe</strong>
-              <div class="control">
-                <form id="recipe-search-form">
-                  <div class="control">
-                    <input id="user-recipe-input" class="input" type="text" placeholder="Recipe input">
-                    <div class="buttons is-centered">
-                      <button class="button is-dark" id="search-btn">Submit</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <!-- Search Results Section -->
-            <div id="search-results">
-              <ul id="search-results-container"></ul>
-              <div class="buttons is-centered">
-                <a href="#search-recipes">
-                  <button class="button is-link return-top" id="back-to-top-btn">Back to Top</button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- JQuery Added -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-        <!-- JavaScript File Added -->
-        <script src="index.js" async defer></script>
-
-</body>
-</div>
-<footer class="footer">
-  <div class="content has-text-centered">
+  <footer class="footer">
     <p>
       <strong>Recipe Hub</strong> by Calm Tornadoes!</a>
     </p>
     <a href="https://github.com/Cjmoye30/Project1_Recipe_Hub">Git Hub Project</a>
-  </div>
-</footer>
+  </footer>
+
+  <!-- JQuery Added -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <!-- JavaScript File Added -->
+  <script src="index.js" async defer></script>
+
+</body>
+
 </div>
 
 </html>
