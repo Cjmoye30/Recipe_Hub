@@ -40,7 +40,8 @@ SO THAT I can get the required ingredients for the recipe selected
 **`Then`** I can view a list of grocery stores
 
 ## Installation / Live Site
-[Github Pages Live Site](https://cjmoye30.github.io/Project1_Recipe_Hub/)
+[Recipe Hub Live Site](https://cjmoye30.github.io/Project1_Recipe_Hub/)
+[Recipe Hub Walkthrough](https://drive.google.com/file/d/14nJgPK4R8DfqZhHA2Gk5u8QHpLIgC9wP/view?usp=share_link)
 
 ## Usage / Screenshot
 <img width="1201" alt="Screenshot 2023-03-13 at 9 46 24 PM" src="https://user-images.githubusercontent.com/122712555/224871121-4f0ec173-5dad-4beb-89af-7601394ae988.png">

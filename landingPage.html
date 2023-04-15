@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Random Recipe Page</title>
+    <title>Recipe Page</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -19,56 +19,54 @@
 <body>
 
     <!-- Header Section -->
-    <section class="hero is-success">
-        <div class="hero-body">
-            <a href="index.html">
-                <p class="title">Recipe Hub</p>
-            </a>
-            <p class="subtitle">Enjoy your recipe and locate a local Charlotte grocery store!</p>
-        </div>
-    </section>
-    
-    <!-- Recent Searches -->
+    <header>
+        <a href="index.html">
+            <h1 class="title">Recipe Hub</h1>
+        </a>
+        <p>Enjoy your recipe and locate a local Charlotte grocery store!</p>
+    </header>
 
+
+    <!-- Recent Searches -->
     <div class="row content-holder">
 
         <aside class="search-history-section">
-            <h1>Recent Searches</h1>
+            <h1 id="search-title">Recent Searches</h1>
             <ul id="searchHistory"></ul>
             <button id="clearHistory" class="button">Clear History</button>
         </aside>
-    
+
         <section id="recipeResults" class="hero">
-                    <div class="hero-body">
-                        <div id="recipe-title" class="content is-large"></div>
-                        <img id="recipe-img" src="" alt="">
-                        <div id="recipe-ingredients-container">
-                            <ul id="recipe-ingredients"></ul>
-                        </div>
-                        <div id="recipe-instructions"></div>
-                    </div>
-                </section>
-
-    </div>
-
-        <section id="map-section">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-8">
-                        <div class="box" id="my-map"></div>
-                    </div>
+            <div class="hero-body">
+                <div id="recipe-title" class="content is-large"></div>
+                <img id="recipe-img" src="" alt="">
+                <div id="recipe-ingredients-container">
+                    <ul id="recipe-ingredients"></ul>
                 </div>
-                <!-- Return Home Button-->
-                <section id="return">
-                    <div class="buttons is-centered">
-                        <button id="return-to-main" class="button is-link">Return to Home</button>
-                    </div>
-                </section>
+                <div id="recipe-instructions"></div>
             </div>
         </section>
 
+    </div>
+
+    <section id="map-section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="box" id="my-map"></div>
+                </div>
+            </div>
+            <!-- Return Home Button-->
+            <section id="return">
+                <div class="buttons is-centered">
+                    <button id="return-to-main" class="button">Return to Home</button>
+                </div>
+            </section>
+        </div>
+    </section>
+
     <!-- Footer/Closing Info -->
-    <footer class="footer">
+    <footer>
         <div class="content has-text-centered">
             <p>
                 <strong>Recipe Hub</strong> by Calm Tornadoes!</a>

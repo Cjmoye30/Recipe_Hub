@@ -1,10 +1,20 @@
+/* ---------- Color Palett ---------- */
+:root {
+    --c1: #F7F1E5;
+    --c2: #E7B10A;
+    --c3: #898121;
+    --c4: #4C4B16;
+    --c5: #f7ebd5;
+    /* more if needed */
+}
+
 *{
     margin: 0;
     padding: 0;
 }
 
 #recipeResults {
-    background-color: lightgrey;
+    background-color: var(--c1);
     text-align: center;
 }
 
@@ -15,7 +25,7 @@
 }
 
 #map-section {
-    background-color: lightgrey;
+    background-color: var(--c5);
     margin-top: 12px;
 }
 
@@ -23,22 +33,57 @@
     display: flex;
 }
 
+header, footer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--c4);
+    color: var(--c1);
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 20px;
+}
+
+strong, a {
+    color: var(--c1);
+}
+
+.title, #recipe-title {
+    font-family: 'Pacifico', cursive;
+
+}
+
+.title {
+    font-size: 60px;
+    padding: 20px;
+    color: var(--c1);
+}
+
+.content-holder {
+    border-bottom: .1px solid var(--c4);
+
+}
+
 /* Side Searches */
+#search-title {
+    text-align: center;
+    font-size: 24px;
+    color: var(--c4);
+    font-weight: bold;
+}
+
 aside {
     margin: 0 auto;
     height: auto;
-    width: 350px;
+    max-width: 350px;
     align-items: center;
     justify-content: center;
-    border-right: 2px;
-    border-bottom: 2px;
-    border-style: solid;
+    border-right: .1px solid var(--c4);
     padding-bottom: 0;
-    background-color: lightslategray;
+    background-color: var(--c5);
 }
 
 #clearHistory {
-    width: 50%;
     margin: 0 auto;
 }
 
@@ -49,19 +94,19 @@ aside {
     padding: 0;
 }
 
-.search-history-section {
-    width: 100%;
-}
-
 .search-history-buttons {
     display: flex;
     word-wrap: break-word;
     overflow: hidden;
     padding: 20px;
     height: max-content;
-    background-color: #c7ddb5;
-    border-color: white;
+    background-color: var(--c3);
+    color: var(--c1);
     margin: 2px;
+}
+
+#recipe-title {
+    font-size: 48px;
 }
 
 #recipe-ingredients-container {
@@ -94,6 +139,14 @@ aside {
 
 .columns {
     margin-right: 0;
+}
+
+/* same styling for all buttons */
+.button {
+    background-color: var(--c4);
+    font-size: 18px;
+    color: var(--c1);
+    box-shadow: 5px 5px 10px black;
 }
 
 /* Pseudo Selectors */

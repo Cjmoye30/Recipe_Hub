@@ -4,9 +4,7 @@
     --c2: #E7B10A;
     --c3: #898121;
     --c4: #4C4B16;
-    
-    --c5: #d1cfcb;
-
+    --c5: #f7ebd5;
     /* more if needed */
 }
 
@@ -18,7 +16,7 @@
 
 main {
     min-height: 100vh;
-    background-color: var(--c1);
+    background-color: var(--c5);
     color: var(--c4);
     font-family: 'Signika Negative', sans-serif;
 }
